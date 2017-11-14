@@ -1,0 +1,262 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+}
+body {
+  font-size: 15px;
+  margin: 0;
+  background-color: #413C58;
+}
+
+input, textarea {
+	display: block;
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+button {
+	display: inline-block;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+}
+
+.buscador {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+.buscador .botaoPesquisar {
+  position: absolute;
+  left: 190px;
+  top: 2px;
+}
+
+.form-artista {
+  position: absolute;
+  left: 999px;
+  top: 30px;
+  right: 9px;
+	margin-top: -22px;
+  right: 9px;
+	padding: 20px;
+	background-color: #fff;
+  border-radius: 10px;
+}
+
+.form-artista h1 {
+  font-size: 18px;
+  margin-top: -5px;;
+	margin-bottom: 5px;
+}
+
+.form-artista #nomeArtista{
+  width: 150px;
+}
+
+.form-artista .form-idadeArtista input {
+	width: 55px;
+}
+
+.form-artista .form-url input {
+	width: 50%;
+}
+
+.form-artista label {
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.form-artista footer {
+	text-align: right;
+}
+
+.form-artista button[type="submit"] {
+	background-color: #8CC152;
+	color: #fff;
+}
+
+.form-artista button[type="submit"]:hover {
+	background-color: #A0D468;
+}
+
+.form-artista button[type="reset"] {
+	background-color: #AAB2BD;
+	color: #fff;
+}
+
+.form-artista button[type="reset"]:hover {
+	background-color: #CCD1D9;
+}
+.form-musica {
+  position: absolute;
+  left: 999px;
+  top: 240px;
+  right: 9px;
+	margin-top: 30px;
+	padding: 20px;
+	background-color: #fff;
+  border-radius: 10px;
+}
+
+.form-musica h1 {
+	font-size: 18px;
+  margin-top: -5px;;
+	margin-bottom: 5px;
+}
+
+.form-musica #nomeMusica{
+  width: 150px;
+	margin-bottom: 10px;
+}
+
+.form-musica .form-idadeArtista input {
+	width: 55px;
+}
+
+.form-musica .form-duracao input {
+	width: 20%;
+}
+
+.form-musica .form-anoLancamento input {
+	width: 20%;
+}
+
+.form-musica .form-nomeArtistaMusica input {
+	width: 50%;
+}
+
+.form-musica .form-nomeAlbum input {
+	width: 50%;
+}
+
+.form-musica .form-nomeMusica input {
+	width: 50%;
+}
+
+.form-musica label {
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.form-musica footer {
+	text-align: right;
+}
+
+.form-musica button[type="submit"] {
+
+	background-color: #8CC152;
+	color: #fff;
+}
+
+.form-musica button[type="submit"]:hover {
+	background-color: #A0D468;
+}
+
+.form-musica button[type="reset"] {
+	background-color: #AAB2BD;
+	color: #fff;
+}
+
+.form-musica button[type="reset"]:hover {
+	background-color: #CCD1D9;
+}
+
+.playlist {
+    background-color: #fff;
+    width: 500px;
+    position: absolute;
+    top: 11px;
+    right: 375px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.nomePlaylist {
+    width: 220px;
+}
+.addPlaylist {
+  position: relative;
+  left: 230px;
+  bottom: 26px;
+}
+
+#check {
+  position: absolute;
+  top: 1px;
+  left: 89px;
+}
+
+#checkFavoritos {
+    position: relative;
+    top: -20px;
+    left: 85px;
+}
+
+#checkLabel {
+  position: relative;
+  bottom: 21px;
+  left: 120px;
+}
+
+#checkLabelFavoritos {
+    position: relative;
+    bottom: 40px;
+    left: 120px;
+}
+
+.artistas {
+  position: absolute;
+  left: 8px;
+  top: 65px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  width: 232px;
+}
+
+.artistasFavoritos {
+  position: absolute;
+  left: 250px;
+  top: 65px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  width: 232px;
+}
+
+.listaArtistas {
+    position: relative;
+    top: 145px;
+    left: 9px;
+    margin-top: 10px;
+    width: 230px;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 0px 0px 0px 11px;
+    margin-left: 0px;
+}
+
+.listaFavoritos {
+    position: relative;
+    top: 45px;
+    left: 250px;
+    margin-top: 10px;
+    width: 231px;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 4px 0px 0px 11px;
+}
+
+.nomeArtista {
+    position: relative;
+    top: -2px;
+}
