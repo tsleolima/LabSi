@@ -5,7 +5,7 @@
 	<title>Sistema de Música</title>
 
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<link rel="stylesheet" href="css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="js/module.js"></script>
@@ -42,8 +42,6 @@
 				<br>
 			</div>
 
-			<hr>
-
 			<div class="artistasFavoritos">
 				Meus artistas Favoritos
 			</div>
@@ -78,7 +76,7 @@
 				<button type="reset">Limpar</button>
 				<button type="submit">Salvar</button>
 			</footer>
-		{{errorTextArtista}}
+		<span class="erroArtista">{{errorTextArtista}} </span>
 		</form>
 
 		<form class="form-musica" ng-submit="adicionarMusica()">
