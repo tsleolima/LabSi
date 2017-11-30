@@ -1,4 +1,4 @@
-angular.module("myApp").controller("sistemaController", function($scope){
+app.controller("sistemaController", function($scope){
 
 	$scope.artistas = [];
 	musicas = [];
@@ -9,9 +9,6 @@ angular.module("myApp").controller("sistemaController", function($scope){
 	$scope.novaMusica = {};
 
 	$scope.adicionarArtista = function(){
-        if (!$scope.novoArtista.nomeArtista) {
-        	$scope.errorTextArtista = "Preencha todos os campos."
-        	return;}
         if (searchArtista($scope.novoArtista.nomeArtista) == null){
 
 			$scope.novoArtista.albuns = [];
@@ -59,31 +56,28 @@ angular.module("myApp").controller("sistemaController", function($scope){
 	}
 
 	$scope.adicionarMusica = function(){
-        if (!$scope.novaMusica.nomeMusica) {
-        	$scope.errorTextMusica = "Preencha todos os campos."
-        	return;}
-        var album = verificaAlbumSistema($scope.novaMusica.nomeAlbum, $scope.novaMusica.nomeArtistaMusica);
-        if (album == null){
+	    var album = verificaAlbumSistema($scope.novaMusica.nomeAlbum, $scope.novaMusica.nomeArtistaMusica);
+	  	if (album == null){
 
-        	var album = [];
-        	var artista = searchArtista($scope.novaMusica.nomeArtistaMusica);
+	    var album = [];
+	    var artista = searchArtista($scope.novaMusica.nomeArtistaMusica);
 
-        	album.push($scope.novaMusica);
-        	album.nomeAlbum = $scope.novaMusica.nomeAlbum;
+	    album.push($scope.novaMusica);
+	  	album.nomeAlbum = $scope.novaMusica.nomeAlbum;
 
-        	artista.albuns.push(album);
-        	musicas.push($scope.novaMusica);
-        	$scope.novaMusica = {};
+	    artista.albuns.push(album);
+	  	musicas.push($scope.novaMusica);
+	    $scope.novaMusica = {};
 
-        } else {
-            if(verificaMusicaAlbum($scope.novaMusica,album) == null){
-            	album.push($scope.novaMusica);
-            	musicas.push($scope.novaMusica);
-        		$scope.novaMusica = {};
-            }else{
-            	$scope.errorTextMusica = "Música já existente no álbum";
-            }
-        }
+  	} else {
+      if(verificaMusicaAlbum($scope.novaMusica,album) == null){
+      	album.push($scope.novaMusica);
+      	musicas.push($scope.novaMusica);
+    		$scope.novaMusica = {};
+     }else{
+      	$scope.errorTextMusica = "Música já existente no álbum";
+      }
+    }
 	}
 
 	verificaMusicaAlbum = function(musica,album){
@@ -126,9 +120,6 @@ angular.module("myApp").controller("sistemaController", function($scope){
 	}
 
 	$scope.criarPlaylist = function(nomePlaylist){
-        if (!$scope.nomePlaylist) {
-        	$scope.errorTextPlaylist = "Nome da playlist não pode estar em branco."
-        	return;}
         if (searchPlaylist(nomePlaylist) == null){
 
         	var playlist = {};
@@ -152,12 +143,6 @@ angular.module("myApp").controller("sistemaController", function($scope){
 	}
 
 	$scope.adicionarMusicaPlaylist = function(playlist,nomeMusica){
-        if ($scope.nomeMusicaPlaylist) {
-        	$scope.errorTextPlaylistMusica = "Nome da música não pode estar em branco."
-        	return;}
-        if (!nomeMusica) {
-        	$scope.errorTextPlaylistMusica = "Nome da música não pode estar em branco."
-        	return;}
         if (verificaMusicaPlaylist(playlist,nomeMusica) ==  null){
         	var musica = searchMusica(nomeMusica);
         	if(musica != null){
