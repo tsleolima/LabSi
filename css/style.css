@@ -9,7 +9,7 @@ html {
 body {
   font-size: 15px;
   margin: 0;
-  background-color: #413C58;
+  background-color: #ede8e8;
 }
 
 input, textarea {
@@ -29,69 +29,207 @@ button {
 	outline: none;
 }
 
-.buscador {
-	position: absolute;
-	top: 1%;
-	width: 12%;
+.lista-artistas .del {
+	position: relative;
+	top: 0;
+	left: 93%;
+	border: none;
+	background-color: transparent;
+	font-size: 20px;
+	line-height: 10px;
+	padding: 10px;
+	font-weight: bold;
+	overflow: hidden;
+	color: #FC6E51;
 }
 
-.botaoPesquisar {
+.lista-artistas .del:hover {
+	color: #E9573F;
+}
+
+.lista-artistas .del:after {
+	content: '\00D7';
+}
+
+.lista-artistas .add {
+	position: relative;
+	top: 0;
+	left: 75%;
+	border: none;
+	background-color: transparent;
+	font-size: 20px;
+	line-height: 10px;
+	padding: 10px;
+	font-weight: bold;
+	overflow: hidden;
+	color: #dfe544;
+}
+
+.lista-artistas .add:hover {
+	color: #f6ff00;
+}
+
+.lista-artistas .add:after {
+	content: '\2605';
+}
+
+.lista-artistas p {
+	font-size: 20px;
 	position: absolute;
-	left: 100%;
-	top: 5%;
+	top: -5px;
+	left: 10px;
+}
+
+.buscador {
+	width: 30%;
+	padding: 5px 5px;
+	position: relative;
+	left: 33%;
+	padding: 20px;
+}
+
+.botao {
+		background: url("imagens/search.png") no-repeat center;
+		height:55px;
+		width:48px;
+		border:0;
+		outline:0;
+		-moz-outline:0;
+		cursor:pointer;
+		position: absolute;
+		left: 95%;
+		top: 8px;
 }
 
 .form-artista {
-	background-color: #fff;
-	border-radius: 8px;
-	width: 22%;
-	position: absolute;
-	right: 0%;
-	top: 3%;
-	padding: 10px;
+	position: relative;
+	left: 32%;
+  display: block;
+	background-color: #FFF;
+	border-radius: 10px;
+	margin-top: 8px;
+	padding: 10px 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+	width: 35%;
 }
 
 .form-artista h1 {
-	font-size: 24px;
+	text-align: center;
 }
 
-.form-artista button {
-	position: relative;
-	left: 58%;
-	top: 10%;
-	background-color: #e0e5e3;
+.form-artista .form-nomeArtista input{
+	width: 40%;
 }
 
-.form-artista button:hover {
-	background-color: #179e6c;
+.form-artista .form-idadeArtista input{
+	width: 20%;
 }
 
-.form-artista .erroArtista {
-	color: red;
-	
+.form-artista .form-url input{
+	width: 70%;
 }
 
-.form-musica {
+.form-artista label {
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.form-artista footer {
+	margin-top: 30px;
+	text-align: right;
+}
+
+.form-artista button[type="submit"] {
+	background-color: #8CC152;
+	color: #fff;
+}
+
+.form-artista button[type="submit"]:hover {
+	background-color: #A0D468;
+}
+
+.form-artista button[type="reset"] {
+	background-color: #AAB2BD;
+	color: #fff;
+}
+
+.form-artista button[type="reset"]:hover {
+	background-color: #CCD1D9;
+}
+
+.tituloOne {
+	position: absolute;
+	top: 14px;
+	left: 60px;
+}
+
+.tituloTwo {
+	position: absolute;
+	top: 14px;
+	right: 28px;
+	font-size: 27px;
+}
+
+.lista-artistas {
+	width: 30%;
+	height: 200px;
 	background-color: #fff;
 	border-radius: 8px;
-	width: 22%;
-	position: absolute;
-	right: 0%;
-	top: 40%;
-	padding: 10px;
-}
-
-.form-musica h1 {
-	font-size: 24px;
-}
-
-.form-musica button {
+	box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+	padding: 10px 0px;
 	position: relative;
-	left: 58%;
-	top: 10%;
-	background-color: #e0e5e3;
+	left: 15px;
+	top: -300px;
+	margin-bottom: 10px;
 }
 
-.form-musica button:hover {
-	background-color: #179e6c;
+.lista-artistas .artistas img {
+	position: relative;
+	height: 200px;
+	width: 180px;
+	bottom: 125px;
+	left: 0px;
+	border-top-left-radius: 8px;
+}
+
+.lista-artistas .nomeArtista {
+	position: absolute;
+	left: 190px;
+	top: -17px;
+	font-size: 27px;
+}
+
+.artistas {
+	max-height: 170px;
+}
+
+.notaArtista {
+	position: relative;
+	left: 310px;
+	bottom: 5px;
+	width: 1%;
+}
+
+.notaArtista p{
+	position: absolute;
+	left: 0px;
+	top: -38px;
+}
+
+.nomeAlbuns p{
+	position: relative;
+	left: 190px;
+	top: 10px;
+}
+
+.lista-artistas .artistas .albuns {
+	position: absolute;
+	left: 190px;
+	top: 90px;
+	width: 115px;
+	height: 110px;
+}
+
+.artistas p{
+	font-size: 17px;
 }

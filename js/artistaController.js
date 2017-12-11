@@ -1,15 +1,15 @@
-app.controller("sistemaController", function($scope){
+app.controller("artistaController", function($scope){
 
-	$scope.artistas = [];
+	$scope.artistas = [{nomeArtista:"Leo",idadeArtista:18,imagemArtista:"https://poltronanerd.com.br/wp-content/uploads/2016/07/poltrona-The-Flash-.jpg"}];
 	musicas = [];
-	$scope.artistasFavoritos = [];
+	$scope.artistasFavoritos = [{nomeArtista:"Leo",idadeArtista:18,imagemArtista:"https://poltronanerd.com.br/wp-content/uploads/2016/07/poltrona-The-Flash-.jpg"}];
 	$scope.playlists = [];
 
 	$scope.novoArtista = {};
 	$scope.novaMusica = {};
 
 	$scope.adicionarArtista = function(){
-        if (searchArtista($scope.novoArtista.nomeArtista) == null){
+      if (searchArtista($scope.novoArtista.nomeArtista) == null){
 
 			$scope.novoArtista.albuns = [];
 			$scope.artistas.push($scope.novoArtista);
@@ -17,7 +17,7 @@ app.controller("sistemaController", function($scope){
 			$scope.novoArtista = {};
 
         } else {
-            $scope.errorTextArtista = "O artista já foi adicionado no sistema.";
+						alert("Artista Já adicionado ao sistema");
         }
 	}
 

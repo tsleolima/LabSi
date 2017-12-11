@@ -5,144 +5,92 @@
 	<title>Sistema de Música</title>
 
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<link rel="stylesheet" href="css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="js/module.js"></script>
-	<script src="js/sistemaController.js"></script>
+	<script src="js/artistaController.js"></script>
 
 </head>
-	<body ng-controller="sistemaController" >
-		<div class="buscador">
-			<input class="inputBuscador" type="text" placeholder="Buscar..." ng-model="nomeArtistaPesquisado">
-			<button class="botaoPesquisar" ng-click="pesquisarArtistas(nomeArtistaPesquisado)">Pesquisar</buttom>
-		</div>
+	<body>
+		<div ng-controller="artistaController">
 
-			<div class="artistas">
-				Meus artistas
-			</div>
+			<form class="form-artista" ng-submit="adicionarArtista()">
 
-			<div class="listaArtistas"​ ng-repeat="artista in artistas | filter: artistaPesquisado">
-				{{artista.nomeArtista}}
-				<br>
-				<span ng-click="removerArtista(artista.nomeArtista)"> X </span>
-				<span ng-click="adicionarArtistaFavoritos(artista)"> + </span>
-
-				<div class="checkbox">
-					<input id="check" type="checkbox" ng-model="myVar" name="check" value="check">
-					<label id="checkLabel" for="check">Detalhes</label>
+				<h1><strong>Adicionar um Artista</strong></h1>
+				<div class="form-nomeArtista">
+					<label for="nomeArtista">Digite o Nome do Artísta</label>
+					<input type="text" id="nomeArtista" ng-model="novoArtista.nomeArtista" name="username" required>
 				</div>
-
-				<div ng-show="myVar">
-					<p ng-repeat="album in artista.albuns">{{album.nomeAlbum}}</p>
-					<img ng-src="{{artista.imagemArtista}}" height="100" width="100">
-					<input type="number" ng-model="artista.nota"> Nota do Artista </input>
+				<div class="form-idadeArtista">
+					<label for="idadeArtista">Idade do artista</label>
+					<input type="number" id="idadeArtista" ng-model="novoArtista.idadeArtista" name="userage" required>
 				</div>
-
-				<br>
-			</div>
-
-			<div class="artistasFavoritos">
-				Meus artistas Favoritos
-			</div>
-
-			<div class="listaFavoritos" ng-repeat="artista in artistasFavoritos">
-				<span class="nomeArtista">{{artista.nomeArtista}}<span>
-				<span ng-click="removerArtistaFavoritos(artista.id)"> X </span>
-				<input id="checkFavoritos" type="checkbox" ng-model="myVar">
-				<label id="checkLabelFavoritos" for="check">Detalhes</label>
-				<div ng-show="myVar">
-					<p ng-repeat="album in artista.albuns">{{album.nomeAlbum}}</p>
-					<img ng-src="{{artista.imagemArtista}}" height="100" width="100">
+				<div class="form-url">
+					<label for="imagemArtista">Endereço da imagem</label>
+					<input type="url" id="imagemArtista" ng-model="novoArtista.imagemArtista" name="userphoto" required>
 				</div>
-			</div>
-
-		<form class="form-artista" ng-submit="adicionarArtista()">
-
-			<h1><strong>Adicionar um Artista</strong></h1>
-			<div class="form-nomeArtista">
-				<label for="nomeArtista">Digite o Nome do Artísta</label>
-				<input type="text" id="nomeArtista" ng-model="novoArtista.nomeArtista" name="username" required>
-			</div>
-			<div class="form-idadeArtista">
-				<label for="idadeArtista">Idade do artista</label>
-				<input type="number" id="idadeArtista" ng-model="novoArtista.idadeArtista" name="userage" required>
-			</div>
-			<div class="form-url">
-				<label for="imagemArtista">Endereço da imagem</label>
-				<input type="url" id="imagemArtista" ng-model="novoArtista.imagemArtista" name="userphoto" required>
-			</div>
-			<footer>
-				<button type="reset">Limpar</button>
-				<button type="submit">Salvar</button>
-			</footer>
-		<span class="erroArtista">{{errorTextArtista}} </span>
-		</form>
-
-		<form class="form-musica" ng-submit="adicionarMusica()">
-
-			<h1><strong>Adicionar uma música</strong></h1>
-			<div class="form-nomeMusica">
-				<label for="nome">Nome da música</label>
-				<input type="text" id="nome" ng-model="novaMusica.nomeMusica" name="musicanome" required>
-			</div>
-			<div class="form-nomeArtistaMusica">
-				<label for="nomeArtistaMusica">Nome do artista</label>
-				<input type="text" id="nomeArtistaMusica" ng-model="novaMusica.nomeArtistaMusica" name="musicaartista" required>
-			</div>
-			<div class="form-nomeAlbum">
-				<label for="nomeArtistaMusica">Nome do album</label>
-				<input type="text" id="nomeArtistaMusica" ng-model="novaMusica.nomeAlbum" name="musicaalbum" required>
-			</div>
-			<div class="form-anoLancamento">
-				<label for="anoLancamento">Ano do lançamento da música</label>
-				<input type="number" id="anoLancamento" ng-model="novaMusica.anoLancamento" name="musicalancamento" required>
-			</div>
-			<div class="form-duracao">
-				<label for="duracao">Duração da música</label>
-				<input type="number" id="duracao" ng-model="novaMusica.duracao" name="musicaduracao" required>
-			</div>
-			<footer>
-				<button type="reset">Limpar</button>
-				<button type="submit">Salvar</button>
-			</footer>
-		{{errorTextMusica}}
-		</form>
-
-		<hr>
-
-	<div class="playlist">
-		<form ng-submit="criarPlaylist(nomePlaylist)">
-			<div>
-			<label for="nomePlaylist">Faça sua playlist agora!</label>
-			<input ng-model="nomePlaylist" placeholder="Nome da playlist" id="nomePlaylist" name="nomeplaylist" required>
-			</div>
-
-			<button type="submit"> Add </button>
-
-			<p> {{errorTextPlaylist}} </p>
-		</form>
-
-		<div ng-repeat="playlist in playlists">
-
-			{{playlist.nomePlaylist}}
-			<span ng-click="removerPlaylist(playlist.nomePlaylist)"> x </span>
-			<br>
-
-			<form ng-submit="adicionarMusicaPlaylist(playlist,nomeMusicaPlaylist)">
-				<label for="nomemusica">Musica a ser adicionada</label>
-				<input type="text" ng-model="nomeMusicaPlaylist" id="nomemusica" placeholder="Nome da Musica" name="musicanome" required>
-				<button type="submit">Add</button>
-				<br>
-			<p> {{errorTextPlaylistMusica}} </p>
+				<footer>
+					<button type="reset">Limpar</button>
+					<button type="submit">Salvar</button>
+				</footer>
 			</form>
 
-			<div ng-repeat="musica in playlist.musicas">
-				{{musica.nomeMusica}}
-				<span ng-click="removerMusicaPlaylist(playlist,musica.nomeMusica)"> x </span>
+			<div class="buscador">
+				<input class="inputBuscador" type="text" placeholder="Buscar..." ng-model="nomeArtistaPesquisado">
+				<button class="botao" ng-click="pesquisarArtistas(nomeArtistaPesquisado)"></buttom>
 			</div>
-		</div>
-	</div>
+				<h1 class="tituloOne">Meus Artistas</h1>
 
+				<div class="lista-artistas"​ ng-repeat="artista in artistas | filter: artistaPesquisado">
+					<button class="del" title="Excluir" ng-click="removerArtista(artista.nomeArtista)"></button>
+					<button class="add" title="Adicionar" ng-click="adicionarArtistaFavoritos(artista)"></button>
+
+					<p class="nomeArtista"><strong>{{artista.nomeArtista}}</strong></p>
+
+					<div class="artistas">
+						<div class="nomeAlbuns">
+						<form>
+							<p>Albuns</p>
+							<SELECT class="albuns" NAME = "lista" SIZE=6>
+							<OPTION ng-repeat="album in artista.albuns">{{album.nomeAlbum}}
+							</SELECT>
+						</form>
+						</div>
+
+					<div class="notaArtista">
+							<p>Nota</p>
+							<form>
+								<SELECT NAME = "lista" SIZE=1 ng-model="artista.notaArtista">
+									<OPTION>1
+									<OPTION>2
+									<OPTION>3
+									<OPTION>4
+									<OPTION>5
+								</SELECT>
+							</form>
+						</div>
+					<img ng-src="{{artista.imagemArtista}}">
+					</div>
+				</div>
+
+				<h2 class="tituloTwo">Meus artistas Favoritos</h2>
+
+				<div class="listaFavoritos" ng-repeat="artista in artistasFavoritos">
+					<span class="nomeArtista">{{artista.nomeArtista}}<span>
+					<span ng-click="removerArtistaFavoritos(artista.id)"> R </span>
+
+					<div class="checkbox">
+						<input id="checkFavoritos" type="checkbox" ng-model="myVar">
+						<label id="checkLabelFavoritos" for="check">Detalhes</label>
+					</div>
+
+					<div ng-show="myVar">
+						<p ng-repeat="album in artista.albuns">{{album.nomeAlbum}}</p>
+						<img ng-src="{{artista.imagemArtista}}" height="100" width="100">
+					</div>
+				</div>
+
+		</div>
 </body>
 </html>

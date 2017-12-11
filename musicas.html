@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div>
+      <form class="form-musica" ng-submit="adicionarMusica()">
+
+        <h1><strong>Adicionar uma música</strong></h1>
+        <div class="form-nomeMusica">
+          <label for="nome">Nome da música</label>
+          <input type="text" id="nome" ng-model="novaMusica.nomeMusica" name="musicanome" required>
+        </div>
+        <div class="form-nomeArtistaMusica">
+          <label for="nomeArtistaMusica">Nome do artista</label>
+          <input type="text" id="nomeArtistaMusica" ng-model="novaMusica.nomeArtistaMusica" name="musicaartista" required>
+        </div>
+        <div class="form-nomeAlbum">
+          <label for="nomeArtistaMusica">Nome do album</label>
+          <input type="text" id="nomeArtistaMusica" ng-model="novaMusica.nomeAlbum" name="musicaalbum" required>
+        </div>
+        <div class="form-anoLancamento">
+          <label for="anoLancamento">Ano do lançamento da música</label>
+          <input type="number" id="anoLancamento" ng-model="novaMusica.anoLancamento" name="musicalancamento" required>
+        </div>
+        <div class="form-duracao">
+          <label for="duracao">Duração da música</label>
+          <input type="number" id="duracao" ng-model="novaMusica.duracao" name="musicaduracao" required>
+        </div>
+        <footer>
+          <button type="reset">Limpar</button>
+          <button type="submit">Salvar</button>
+        </footer>
+      {{errorTextMusica}}
+      </form>
+
+      <hr>
+
+    <div class="playlist">
+      <form ng-submit="criarPlaylist(nomePlaylist)">
+        <div>
+        <label for="nomePlaylist">Faça sua playlist agora!</label>
+        <input ng-model="nomePlaylist" placeholder="Nome da playlist" id="nomePlaylist" name="nomeplaylist" required>
+        </div>
+
+        <button type="submit"> Add </button>
+
+        <p> {{errorTextPlaylist}} </p>
+      </form>
+
+      <div ng-repeat="playlist in playlists">
+
+        {{playlist.nomePlaylist}}
+        <span ng-click="removerPlaylist(playlist.nomePlaylist)"> x </span>
+        <br>
+
+        <form ng-submit="adicionarMusicaPlaylist(playlist,nomeMusicaPlaylist)">
+          <label for="nomemusica">Musica a ser adicionada</label>
+          <input type="text" ng-model="nomeMusicaPlaylist" id="nomemusica" placeholder="Nome da Musica" name="musicanome" required>
+          <button type="submit">Add</button>
+          <br>
+        <p> {{errorTextPlaylistMusica}} </p>
+        </form>
+
+        <div ng-repeat="musica in playlist.musicas">
+          {{musica.nomeMusica}}
+          <span ng-click="removerMusicaPlaylist(playlist,musica.nomeMusica)"> x </span>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
