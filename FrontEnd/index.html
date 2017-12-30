@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>Sistema de Músicas</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body >
+	<!-- Menu do site -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#/login" class="navbar-brand" href="#">Musiteca</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#/cadastro">Cadastro</a></li>
+				<li><a href="#/login">Login</a></li>
+				<li><a href="#/playlist">Playlist</a></li>
+				<li><a href="#/artistas">Adicionar Artistas</a></li>
+				<li><a href="#/am">Adicionar Albuns e músicas</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div ng-view></div>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+	<script src="js/module.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/UserService.js"></script>
+	<script src="js/configInterceptor.js"></script>
+	<script src="js/authInterceptor.js"></script>
+	<script src="js/UserController.js"></script>
+	<script src="js/artista.service.js"></script>
+	<script src="js/musicaService.js"></script>
+	<script src="js/artistaController.js"></script>
+	<script src="js/amController.js"></script>
+	<script src="js/loginController.js"></script>
+	<script src="js/playlistService.js"></script>
+	<script src="js/playlistController.js"></script>
+
+
+</body>
+</html>

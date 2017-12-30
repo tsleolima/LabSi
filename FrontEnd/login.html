@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Usuario</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body ng-controller="loginController">
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-4">
+          <button class="txt2" ng-click="logout()">Deslogar</button>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3">
+          <div class="form_main">
+            <h4 class="heading"><strong>Login</strong> Usuario <span></span></h4>
+            <div class="form">
+              <form method="post" id="contactFrm" name="contactFrm" ng-submit="login(usuario)">
+                <input type="text" required="" placeholder="Nome de usuario" value="" name="name" class="txt" ng-model="usuario.username">
+                <input type="text" required="" placeholder="Digite sua senha" value="" name="age" class="txt" ng-model="usuario.password">
+                <input type="submit" value="Logar" name="submit" class="txt2"></input>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="//code.angularjs.org/1.4.4/angular-route.js"></script>
+    <script src="js/module.js"></script>
+    <script src="js/loginController.js"></script>
+
+  </body>
+</html>

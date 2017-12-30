@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Musiteca playlist</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body ng-controller="playlistController">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4">
+          <h3>Crie sua Playlist Aqui!!!</h3>
+          <input type="text" name="nomePlaylist" value="nomePlaylist" ng-model="playlist.nome">
+          <button ng-click="criarPlaylist(playlist)" name="button">Criar</button>
+        </div>
+
+        <div class="col-md-8" ng-repeat="playlist in playlists">
+          <h3>Playlist: {{playlist.nome}}</h3>
+          Mostrar Músicas: <input type="checkbox" ng-model="myVar">
+          <ul class="list-group" ng-show="myVar" ng-repeat="musica in musicas">
+            <li class="list-group-item">{{musica.nomeMusica}}</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/module.js"></script>
+    <script src="//code.angularjs.org/1.4.4/angular-route.js"></script>
+    <script src="js/playlistService.js"></script>
+    <script src="js/playlistController.js"></script>
+
+  </body>
+</html>
