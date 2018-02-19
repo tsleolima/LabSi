@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,8 +45,13 @@ public class ArtistaResource {
 
     @CrossOrigin
 	@PostMapping()
-	public Artista cadastraArtista(@RequestBody @Valid Artista artista) {
-		return ar.save(artista);
+	public ResponseEntity<Artista> cadastraArtista(@RequestBody @Valid Artista artista) {
+    	Artista artistaPesquisado = getArtista(artista.getNomeArtista());
+    	if(artistaPesquisado == null) {
+    		ar.save(artista);
+    		return new ResponseEntity<Artista>(HttpStatus.ACCEPTED);
+    	}
+		return new ResponseEntity<Artista>(HttpStatus.NOT_FOUND);
 	}
 
     @CrossOrigin
@@ -55,9 +62,9 @@ public class ArtistaResource {
 
     @CrossOrigin
 	@PutMapping()
-	public void atualizaNotaUsuario(@RequestBody @Valid Artista artista) {
-    	ar.findByCodigo(artista.getCodigo()).setNota(artista.getNota());
-	}
+	public void atualizaNotaArtista(@RequestBody @Valid Artista artista) {
+    	ar.save(artista);
+    }
 
     @CrossOrigin
 	@GetMapping(value="/{nomeArtista}", produces="application/json")

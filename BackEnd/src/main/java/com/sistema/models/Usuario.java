@@ -12,12 +12,23 @@ public class Usuario implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-    @Id
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private long codigo;
+	
 	private String nome;
 
     private String senha;
     
     private String email;
+    
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
     
     public Usuario() {
     	

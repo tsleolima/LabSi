@@ -7,8 +7,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -17,13 +20,42 @@ public class Playlist implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long codigo;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Usuario usuario;
+	
 	private String nome;
 	
+	public String getMusicaADD() {
+		return musicaADD;
+	}
+
+	public void setMusicaADD(String musicaADD) {
+		this.musicaADD = musicaADD;
+	}
+
+	private String musicaADD;
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Musica> musicas;
-	
+
 	public Playlist() {
 		
+	}
+	
+	public Playlist(Usuario usuario, String nome) {
+		this.usuario = usuario;
+		this.nome = nome;
 	}
 	
 	public Playlist(Musica musica) {

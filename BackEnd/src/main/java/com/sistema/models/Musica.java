@@ -26,6 +26,20 @@ public class Musica implements Serializable{
 	private String nomeArtista;
 	
 	private String nomeAlbum;
+	
+	public Musica() {
+		
+	}
+	
+	public Musica(String nomeMusica, String anoLancamento, String duracao, String nomeArtista, String nomeAlbum, Album album) {
+		this.nomeMusica = nomeMusica;
+		this.anoLancamento = anoLancamento;
+		this.duracao = duracao;
+		this.nomeArtista = nomeArtista;
+		this.nomeAlbum = nomeAlbum;
+		this.album = album;
+		
+	}
 		
 	@ManyToOne
 	private Album album;

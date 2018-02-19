@@ -49,7 +49,7 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
 		
 		String token = TokenAuthenticationService.addAuthentication(response, auth.getName());
 		response.setContentType("text");
-		System.out.println(auth.getPrincipal());
+//		System.out.println(auth.getPrincipal());
 		response.getWriter().print(token);
 		response.getWriter().flush();
 		response.getWriter().close();

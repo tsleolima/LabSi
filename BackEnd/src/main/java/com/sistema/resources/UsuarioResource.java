@@ -1,8 +1,11 @@
 package com.sistema.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.sistema.models.Artista;
 import com.sistema.models.Usuario;
 import com.sistema.repository.UsuarioRepository;
 
@@ -16,8 +19,13 @@ public class UsuarioResource{
     private UsuarioRepository us;
 
     @PostMapping()
-    public Usuario cadastrarUsuario(@RequestBody Usuario usuario) {
-    	return us.save(usuario);
+    public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
+    	Usuario usuarioPesquisado = getUsuario(usuario.getNome());
+    	if(usuarioPesquisado == null) {
+    		us.save(usuario);
+    		return new ResponseEntity<Usuario>(HttpStatus.ACCEPTED);
+    	}
+		return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
     }
     
     @GetMapping(produces="application/json")
@@ -37,6 +45,8 @@ public class UsuarioResource{
 		ArrayList<Usuario> usuarios = listaUsuarios();
 		for(int i = 0; i < usuarios.size(); i++) {
 			if(usuarios.get(i).getNome().equals(nome)) {
+				System.out.println(nome);
+				System.out.println(usuarios.get(i).getNome());
 				return usuarios.get(i);
 			}
 		}

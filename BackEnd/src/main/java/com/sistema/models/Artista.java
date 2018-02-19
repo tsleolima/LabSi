@@ -25,6 +25,26 @@ public class Artista implements Serializable{
 	
 	private int nota;
 	
+	private boolean favorito;
+	
+	private String ultimaMusicaOuvida;
+		
+	public boolean isFavorito() {
+		return favorito;
+	}
+
+	public void setFavorito(boolean favorito) {
+		this.favorito = favorito;
+	}
+
+	public String getUltimaMusicaOuvida() {
+		return ultimaMusicaOuvida;
+	}
+
+	public void setUltimaMusicaOuvida(String ultimaMusicaOuvida) {
+		this.ultimaMusicaOuvida = ultimaMusicaOuvida;
+	}
+
 	public int getNota() {
 		return nota;
 	}
@@ -70,7 +90,6 @@ public class Artista implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idadeArtista;
 		result = prime * result + ((nomeArtista == null) ? 0 : nomeArtista.hashCode());
 		return result;
 	}
@@ -84,8 +103,6 @@ public class Artista implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Artista other = (Artista) obj;
-		if (idadeArtista != other.idadeArtista)
-			return false;
 		if (nomeArtista == null) {
 			if (other.nomeArtista != null)
 				return false;
@@ -93,7 +110,6 @@ public class Artista implements Serializable{
 			return false;
 		return true;
 	}
-
 	
 
 }

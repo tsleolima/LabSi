@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<meta charset="utf-8">
+	<title>Sistema de Música</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body ng-controller="artistaController">
+	<div class="container-fluid">
+		<div class="row justify-content-md-center">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="form_main">
+					<h4 class="heading">
+						<strong>Adicionar</strong> artista
+						<span></span>
+					</h4>
+					<div class="form">
+						<form method="post" id="contactFrm" name="contactFrm" ng-submit="adicionarArtista(artista)">
+							<input type="text" required="" placeholder="Nome do artista" value="" name="name" class="txt" ng-model="artista.nomeArtista">
+							<input type="text" required="" placeholder="Idade do artista" value="" name="age" class="txt" ng-model="artista.idadeArtista">
+							<input type="text" required="" placeholder="Link da foto do artista" value="" name="url" class="txt" ng-model="artista.imagemArtista">
+							<input type="submit" value="Adicionar" name="submit" class="txt2" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	 crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="js/module.js"></script>
+	<script src="js/controller/artistaController.js"></script>
+
+</body>
+
+</html>
